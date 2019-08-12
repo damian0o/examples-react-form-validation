@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const submitForm = e => {
+    e.preventDefault();
+    console.log("Form sumbit event", e);
+
+    const formInputs = e.target.elements;
+    console.log("Form input fields", formInputs);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,8 +24,14 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React Form Validation
         </a>
+        <div>
+          <form onSubmit={submitForm}>
+            <input type="text" name="standardString" />
+            <input type="submit" />
+          </form>
+        </div>
       </header>
     </div>
   );
